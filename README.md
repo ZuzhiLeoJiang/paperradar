@@ -16,29 +16,21 @@ python paperradar.py
 ```
 
 ## Journals default
-_arXiv q-bio_
 
-_arXiv cs.LG_
+**High-impact broad**  
+_Nature_ · _Cell_ · _Science_ · _eLife_
 
-_bioRxiv Genomics+Bioinformatics_
+**Developmental biology**  
+_Development_ · _Developmental Cell_ · _Cell Stem Cell_ · _Genes & Development_
 
-_Nature_
+**Physiology & gut motility**  
+_Journal of Physiology_ · _American Journal of Physiology – GI_
 
-_Cell_
+**Vascular & lymphatic**  
+_Circulation Research_
 
-_Science_
-
-_Nature Methods_
-
-_Nature Genetics_
-
-_Nature Biotechnology_
-
-_Genome Research_
-
-_Oxford Bioinformatics_
-
-_PLOS Computational Biology_
+**Preprints**  
+_bioRxiv Developmental Biology_ · _bioRxiv Cell Biology_ · _arXiv q-bio_
 
 ## Customization
 

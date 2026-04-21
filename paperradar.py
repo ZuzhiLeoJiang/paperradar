@@ -54,63 +54,70 @@ SLACK_WEBHOOK_URL = os.getenv("LIT_DIGEST_SLACK_WEBHOOK", "").strip()
 # Add / edit as you like. URLs are RSS / Atom endpoints.
 
 FEEDS = [
-    # arXiv (examples)
+    # Preprints
     {
-        "name": "arXiv q-bio",
-        "url": "https://export.arxiv.org/rss/q-bio",
+        “name”: “arXiv q-bio”,
+        “url”: “https://export.arxiv.org/rss/q-bio”,
     },
     {
-        "name": "arXiv cs.LG",
-        "url": "https://export.arxiv.org/rss/cs.LG",
+        “name”: “bioRxiv Developmental Biology”,
+        “url”: “https://connect.biorxiv.org/biorxiv_xml.php?subject=developmental_biology”,
     },
-
-    # bioRxiv – you should adjust to your preferred subject feeds.
-    # Check biorxiv "RSS" page for more granular subjects if you want.
     {
-        "name": "bioRxiv Genomics+Bioinformatics",
-        "url": "https://connect.biorxiv.org/biorxiv_xml.php?subject=genomics+bioinformatics",
+        “name”: “bioRxiv Cell Biology”,
+        “url”: “https://connect.biorxiv.org/biorxiv_xml.php?subject=cell_biology”,
     },
 
-    # Journals – many have RSS links in their “Alerts” or “RSS” pages.
-    # Put whatever you care about here.
+    # High-impact broad journals
     {
-        "name": "Genome Research",
-        "url": "https://genome.cshlp.org/rss/current.xml",
+        “name”: “Nature”,
+        “url”: “http://www.nature.com/nature/current_issue/rss”,
     },
     {
-        "name": "Nature Genetics",
-        "url": "https://www.nature.com/ng.rss",
+        “name”: “Cell”,
+        “url”: “https://www.cell.com/cell/current.rss”,
     },
     {
-        "name": "Nature Methods",
-        "url": "https://www.nature.com/nmeth.rss",
+        “name”: “Science”,
+        “url”: “http://www.sciencemag.org/rss/current.xml”,
     },
     {
-        "name": "Nature Biotechnology",
-        "url": "https://www.nature.com/nbt/current_issue/rss/",
+        “name”: “eLife”,
+        “url”: “https://elifesciences.org/rss/recent.xml”,
+    },
+
+    # Developmental biology
+    {
+        “name”: “Development”,
+        “url”: “https://journals.biologists.com/dev/rss/current-issue.xml”,
     },
     {
-        "name": "Nature",
-        "url": "http://www.nature.com/nature/current_issue/rss",
-    },
-    
-    {
-        "name": "Science",
-        "url": "http://www.sciencemag.org/rss/current.xml",
-    },
-    
-    {
-        "name": "Cell",
-        "url": "https://www.cell.com/cell/current.rss",
-    },
-    
-    {
-        "name": "Bioinformatics",
-        "url": "https://academic.oup.com/rss/site_5139/3001.xml",
+        “name”: “Developmental Cell”,
+        “url”: “https://www.cell.com/developmental-cell/current.rss”,
     },
     {
-        "name": "PLOS Computational Biology",
-        "url": "https://journals.plos.org/ploscompbiol/feed/atom",
+        “name”: “Cell Stem Cell”,
+        “url”: “https://www.cell.com/cell-stem-cell/current.rss”,
+    },
+    {
+        “name”: “Genes & Development”,
+        “url”: “https://genesdev.cshlp.org/rss/current.xml”,
+    },
+
+    # Physiology & gut motility
+    {
+        “name”: “Journal of Physiology”,
+        “url”: “https://physoc.onlinelibrary.wiley.com/feed/14697793/most-recent”,
+    },
+    {
+        “name”: “American Journal of Physiology-GI”,
+        “url”: “https://journals.physiology.org/action/showFeed?type=etoc&feed=rss&jc=ajpgi”,
+    },
+
+    # Vascular & lymphatic
+    {
+        “name”: “Circulation Research”,
+        “url”: “https://www.ahajournals.org/action/showFeed?type=etoc&feed=rss&jc=res”,
     },
 ]
 
@@ -119,22 +126,44 @@ FEEDS = [
 # title or summary. Matching is case-insensitive simple substring.
 
 INCLUDE_KEYWORDS = [
-    "single-cell",
-    "scRNA-seq",
-    "scrna",
-    "perturbation",
-    "multi-omic",
-    "multi omic",
-    "multiomics",
+    # Gut / intestinal development
+    "intestin",
+    "gut development",
+    "villus", "villi",
+    "mesenchyme", "mesenchymal",
+    "enteric",
+    "perinatal", "neonatal",
+
+    # Key cell types & markers
+    "PDGFRα", "PDGFRalpha", "PDGFRA",
+    "interstitial cells of Cajal", "ICC",
+    "SIP syncytium",
+    "smooth muscle",
+    "Hand2",
+    "Sox6",
+
+    # Mechanosensing
+    "Piezo",
+    "mechanosensing", "mechanosensor",
+    "mechanotransduction",
+
+    # Signaling
+    "Hedgehog",
+    "morphogen",
+
+    # Vascular / lymphatic
+    "lacteal",
+    "lymphatic",
+    "PDGFRβ", "PDGFRbeta",
+    "angiogenesis",
+    "VEGF",
+
+    # Single-cell & genomics
+    "single-cell", "single cell",
+    "scRNA-seq", "scrna",
     "spatial transcriptomics",
-    "phosphoproteomic",
-    "chromatin accessibility",
-    "ATAC-seq",
-    "gene regulatory",
-    "foundation model",
-    "transformer",
-    "cardiomyopathy",
-    "single cell"
+    "lineage tracing",
+    "cell fate",
 ]
 
 # If any of these appear, drop the item.
@@ -146,7 +175,6 @@ EXCLUDE_KEYWORDS = [
     "bacterial community",
     "ecology",
     "behavioral",
-    "mouse model"  # remove if you do want mice
 ]
 
 # ---- Canonical papers ----
@@ -154,29 +182,43 @@ EXCLUDE_KEYWORDS = [
 # for what you care about. Titles + short summaries is enough.
 
 CANONICAL_PAPERS = [
+    # Replace these with actual papers from your field.
+    # Titles + short summaries are enough for the embedding to work well.
     {
-        "title": "Single-cell multi-omics and perturbation profiling of human cardiomyocytes",
-        "summary": "Integration of scRNA-seq, chromatin accessibility, and proteomics "
-                   "to understand cardiomyopathy genetics and perturbation responses."
+        "title": "PDGFRα-positive cells in the intestinal wall form distinct mesenchymal populations "
+                 "controlling villus morphogenesis and gut motility",
+        "summary": "Single-cell transcriptomics of intestinal mesenchyme reveals two PDGFRα+ "
+                   "progenitor lineages: a Sox6+ subepithelial population that drives villus "
+                   "morphogenesis in response to Hedgehog signaling, and a Hand2+ population "
+                   "that integrates into the SIP syncytium to regulate peristalsis."
     },
     {
-        "title": "Foundation models for single-cell gene expression and perturbation prediction",
-        "summary": "Large-scale pretraining on single-cell transcriptomes and use of "
-                   "in silico perturbations to predict gene regulatory responses."
+        "title": "Piezo2 is the principal mechanotransduction channel for proprioception",
+        "summary": "Piezo2, a mechanically activated ion channel, is required for proprioception "
+                   "and light touch in mice. Conditional deletion abolishes stretch-evoked "
+                   "currents in sensory neurons, establishing Piezo2 as the primary "
+                   "mechanosensor in these cells."
     },
     {
-        "title": "Transfer learning enables predictions in network biology.",
-        "summary": "Context-aware, attention-based model Geneformer pretrained on ~30M "
-                   "single-cell transcriptomes to learn gene network dynamics."
+        "title": "Perinatal gut mesenchyme development and SIP syncytium assembly",
+        "summary": "Characterization of smooth muscle, interstitial cells of Cajal, and "
+                   "PDGFRα+ cells (SIP syncytium) in the neonatal intestine. Mechanical "
+                   "stimulation from feeding drives postnatal lineage specification of "
+                   "mesenchymal progenitors via calcium signaling."
     },
     {
-        "title": "scGPT: towards building a foundation model for single-cell multi-omics",
-        "summary": "using a generative pretrained transformer trained on over 30M cells."
+        "title": "Intestinal villus morphogenesis requires epithelial-mesenchymal crosstalk via "
+                 "Hedgehog and PDGFRα signaling",
+        "summary": "Conditional deletion of smoothened or PDGFRα in intestinal mesenchyme "
+                   "disrupts villus clustering and subepithelial fibroblast specification, "
+                   "revealing a Hedgehog-driven niche for villus formation during embryogenesis."
     },
     {
-        "title": "Tahoe-x1: scaling perturbation-trained single-cell foundation models. ",
-        "summary": "Tx1 is pretrained on 200M+ perturbation-rich scRNA profiles and "
-                   "fine-tuned for cancer-relevant prediction tasks."
+        "title": "Lacteal maintenance and dietary lipid absorption depend on VEGF-C/VEGFR3 "
+                 "and PDGFRα+ stromal cells in the intestinal villus",
+        "summary": "VEGF-C signaling sustains lacteal integrity in adult villi. PDGFRα+ "
+                   "stromal cells wrap lacteals and support lymphatic endothelial quiescence; "
+                   "their loss impairs chylomicron uptake and lipid transport."
     },
 ]
 
