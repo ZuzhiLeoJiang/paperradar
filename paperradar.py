@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Recent literature digest for arXiv / bioRxiv / journals.
+paperradar — personal academic literature radar.
 
-- Fetches RSS feeds
+- Fetches RSS feeds from arXiv / bioRxiv / journals
 - Filters by keywords
 - Ranks by semantic similarity to canonical papers
-- Writes Markdown digest
+- Writes HTML digest
 - Optionally posts top-N to Slack via incoming webhook
 
 Configurable in the CONFIG section below.

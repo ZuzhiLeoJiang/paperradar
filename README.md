@@ -1,15 +1,18 @@
-# lit_feed
-Customize recent literature of interest feed. Lit_feed will pull most recent papers from the journals you selected, filter by keywords, rank them by semantic relevance to the seed papers you set, and feed the results in an HTML file. 
+# paperradar
+Customize your personal academic literature radar. paperradar pulls recent papers from the journals you select, filters by keywords, ranks them by semantic relevance to seed papers you define, and delivers the results as a clean HTML digest.
+
+## Credits
+Originally created as `lit_feed` by [Yujie York Zhang](https://github.com/zyj1729). This fork is maintained by Zuzhi Leo Jiang with customizations for single-cell multi-omics and perturbation biology research.
 
 
 ## Installation
 
 ```bash
-git clone https://github.com/zyj1729/lit_feed.git
+git clone https://github.com/ZuzhiLeoJiang/paperradar.git
 pip install feedparser requests sentence-transformers torch
 
-cd lit_feed
-python lit_feed.py
+cd paperradar
+python paperradar.py
 ```
 
 ## Journals default
@@ -39,5 +42,4 @@ _PLOS Computational Biology_
 
 ## Customization
 
-You can customize the journals to include in **Feeds** section, keywords to include or exclude in **Keywords filters** section, seed paper of relevance in **Canonical papers** section. 
-
+You can customize the journals to include in **Feeds** section, keywords to include or exclude in **Keywords filters** section, seed paper of relevance in **Canonical papers** section.
